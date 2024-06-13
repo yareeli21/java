@@ -1,38 +1,30 @@
-package Empleado;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package usoherencia;
 
 /**
  *
  * @author yayit
  */
 public class Empleado {
-    //variables de instancia
-    private String nombre;
-    private String RFC;
+    protected String nombre;
+    protected double salario;
+    private String numEmpleado;
     
-    //variable de clase
-    //Se hace uso del "static", como es un contador será inicializado en 0
-    public static int contador=0;
-    
-    //constructor de la clase Empleado
-    public Empleado(String nom, String rfc){
-        nombre=nom;
-        RFC=rfc;
-        contador++;//se dice que irá aumentando cada vez que se instancie un objeto
+    public Empleado(String nombre, double salario, String numEmpleado){
+        this.nombre=nombre;
+        this.salario=salario;
+        this.numEmpleado=numEmpleado;
     }
     
-    //método de clase
+    //el método toString es un método de la clase Object de Java, la clase Empleado está redefiniendo este método
     
-    public static void reportarEmpleados(){
-        System.out.println("El numero de empleado es: "+contador);
+    @Override
+    public String toString(){
+        return "Nombre: "+nombre+"\nSalario: \n"+salario+"\nNumero de empleado:\n"+numEmpleado;
     }
-    //método de la clase de instancia
-    public void imprime(){
-        System.out.println("Nombre: "+nombre + " RFC: "+RFC);
-        
-    }
+   
 }
+
